@@ -8,6 +8,9 @@
 		<platform.version>1.0-SNAPSHOT</platform.version>
 		<maven.compiler.plugin.version>3.2</maven.compiler.plugin.version>
 		<maven.source.plugin.version>2.4</maven.source.plugin.version>
+		<scala.version>2.10.6</scala.version>
+		<spark.version>2.2.0</spark.version>
+		<spnego.version>7.0</spnego.version>
 	</properties>
 
 	<groupId>algorithmPlatform</groupId>
@@ -17,8 +20,15 @@
 
 	<modules>
 		<module>platform-yarn</module>
+		<module>algorithm</module>
 	</modules>
-
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-core_2.10</artifactId>
+			<version>${spark.version}</version>
+		</dependency>
+	</dependencies>
 	<build>
 		<finalName>algorithmPlatform</finalName>
 		<plugins>
