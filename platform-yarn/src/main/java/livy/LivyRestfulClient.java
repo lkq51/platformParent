@@ -42,8 +42,8 @@ public class LivyRestfulClient {
 
 	public LivyRestfulClient(LivyRestConfig config){
 		super();
-		checkNotNull(restConfig, "参数[restfulConfig]不能为null");
-		checkNotNull(restConfig.getUrlRestful(), "参数[UrlRestful]不能为null");
+//		checkNotNull(restConfig, "参数[restConfig]不能为null");
+//		checkNotNull(restConfig.getUrlRestful(), "参数[UrlRestful]不能为null");
 		this.restConfig = config;
 	}
 	public BatchResponse submit(BatchPostRequest request){
@@ -62,7 +62,7 @@ public class LivyRestfulClient {
 			logger.debug(strRequest);
 		}
 
-		String urlFull = restConfig.getUrlRestful() + "/batches";
+		String urlFull = restConfig.getUrlRestful();
 
 		String batchResult = null;
 		if (this.useSpnego){
@@ -124,7 +124,7 @@ public class LivyRestfulClient {
 	}
 	public BatchResponse getBatchInfo(String batchid) {
 
-		String urlBatchInfo = String.format("%s/batches/%s",
+		String urlBatchInfo = String.format("%s/%s",
 				restConfig.getUrlRestful(), batchid);
 		String infoResult = null;
 		if (this.useSpnego) {
@@ -147,12 +147,12 @@ public class LivyRestfulClient {
 
 	public static void main(String[] args) {
 		LivyRestConfig config = new LivyRestConfig();
-		config.setUrlRestful("");
+		config.setUrlRestful("http://10.33.26.242:8998/");
 		LivyRestfulClient client = new LivyRestfulClient(config);
 
 		BatchPostRequest request = new BatchPostRequest();
-		request.setClassName("");
-		request.setFile("");
+		request.setClassName("test.algorit.test");
+		request.setFile("/livy/algorithm.jar");
 		BatchResponse response = client.submit(request);
 		System.out.println(response);
 		System.out.println("==========================");
