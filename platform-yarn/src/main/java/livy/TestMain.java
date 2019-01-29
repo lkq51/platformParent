@@ -1,6 +1,5 @@
 package livy;
 
-import livyTest.LivyJob;
 import org.apache.livy.LivyClient;
 import org.apache.livy.LivyClientBuilder;
 
@@ -27,9 +26,9 @@ public class TestMain {
 			client.uploadJar(new File(jar)).get();
 
 			System.err.printf("Running PiJob with %d samples...\n", 10);
-			double pi = client.submit(new LivyJob(10)).get();
+//			double pi = client.submit(new LivyJob(10)).get();
 
-			System.out.println("Pi is roughly: " + pi);
+//			System.out.println("Pi is roughly: " + pi);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} catch (ExecutionException e) {

@@ -123,8 +123,7 @@ public class HttpClientUtils {
 
 			HttpReturnInfo returnInfo = new HttpReturnInfo();
 			returnInfo.setRetcode(statusLine.getStatusCode());
-			returnInfo.setContent(entity != null ? EntityUtils.toString(entity)
-					: null);
+			returnInfo.setContent(entity != null ? EntityUtils.toString(entity) : null);
 			return returnInfo;
 		} catch (IOException | ParseException e) {
 			throw new IllegalStateException(e);

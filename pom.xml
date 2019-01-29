@@ -20,7 +20,8 @@
 	<modules>
 		<module>platform-yarn</module>
 		<module>algorithm</module>
-	</modules>
+        <module>tools</module>
+    </modules>
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.spark</groupId>
