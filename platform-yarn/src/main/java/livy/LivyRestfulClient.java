@@ -2,18 +2,15 @@ package livy;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.hikvision.tools.SysConfigUtils;
+import com.hikvision.tools.common.SysConfigUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.livy.LivyClient;
-import org.apache.livy.LivyClientBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import utils.httpUtils.HttpClientUtils;
-import utils.httpUtils.HttpReturnInfo;
-import utils.httpUtils.SpnegoHttpUtils;
+import com.hikvision.tools.http.HttpClientUtils;
+import com.hikvision.tools.http.HttpReturnInfo;
+import com.hikvision.tools.http.SpnegoHttpUtils;
 
 import java.io.IOException;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;

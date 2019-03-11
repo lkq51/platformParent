@@ -1,7 +1,6 @@
-package utils.httpUtils;
+package com.hikvision.tools.http;
 
 import net.sourceforge.spnego.SpnegoHttpURLConnection;
-import org.apache.commons.lang3.StringUtils;
 import org.ietf.jgss.GSSException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +9,6 @@ import javax.security.auth.login.LoginException;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.PrivilegedActionException;
 import java.util.Map;

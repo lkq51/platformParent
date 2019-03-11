@@ -1,4 +1,4 @@
-package utils.httpUtils;
+package com.hikvision.tools.http;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 

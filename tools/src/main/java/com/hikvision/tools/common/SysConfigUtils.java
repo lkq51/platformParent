@@ -1,4 +1,4 @@
-package com.hikvision.tools;
+package com.hikvision.tools.common;
 
 import org.apache.commons.configuration.CompositeConfiguration;
 import org.apache.commons.configuration.Configuration;

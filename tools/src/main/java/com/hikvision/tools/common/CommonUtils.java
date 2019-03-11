@@ -1,4 +1,4 @@
-package com.hikvision.tools;
+package com.hikvision.tools.common;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
