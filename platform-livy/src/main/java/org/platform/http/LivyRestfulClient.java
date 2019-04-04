@@ -1,14 +1,11 @@
-package livy;
+package org.platform.http;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.hikvision.tools.common.SysConfigUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.platform.common.SysConfigUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.hikvision.tools.http.HttpClientUtils;
-import com.hikvision.tools.http.HttpReturnInfo;
-import com.hikvision.tools.http.SpnegoHttpUtils;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -36,7 +33,7 @@ public class LivyRestfulClient {
 		{
 			put("Content-Type", "application/json");
 			put("Accept", "application/json");
-			put("X-Requested-By", "livy");
+			put("X-Requested-By", "org/platform/http");
 			put("User-Agent",
 					"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36");
 		}
@@ -150,7 +147,7 @@ public class LivyRestfulClient {
 
 		BatchPostRequest request = new BatchPostRequest();
 		request.setClassName("com.algorit.test");
-		request.setFile("/livy/algorithm.jar");
+		request.setFile("/org/platform/http/algorithm.jar");
 		request.setName("test");
 		BatchResponse response = client.submit(request);
 		System.out.println(response);

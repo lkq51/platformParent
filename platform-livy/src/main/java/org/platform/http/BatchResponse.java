@@ -1,4 +1,4 @@
-package livy;
+package org.platform.http;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 
