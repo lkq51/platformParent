@@ -29,9 +29,7 @@ public class TestMain {
 //			double pi = client.submit(new LivyJob(10)).get();
 
 //			System.out.println("Pi is roughly: " + pi);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} catch (ExecutionException e) {
+		} catch (InterruptedException | ExecutionException e) {
 			e.printStackTrace();
 		} finally {
 			client.stop(true);

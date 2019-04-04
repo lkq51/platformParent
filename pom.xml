@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="org.platform.http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="org.platform.http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 
 	<properties>
@@ -18,34 +17,36 @@
 	<version>${platform.version}</version>
 
 	<modules>
-		<module>platform-yarn</module>
+		<module>platform-livy</module>
 		<module>algorithm</module>
-        <module>tools</module>
-    </modules>
+		<module>platform-common</module>
+		<module>platform-server</module>
+		<module>platform-utils</module>
+	</modules>
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.spark</groupId>
 			<artifactId>spark-core_2.10</artifactId>
 			<version>${spark.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>snappy-java</artifactId>
-                    <groupId>org.xerial.snappy</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>jackson-databind</artifactId>
-                    <groupId>com.fasterxml.jackson.core</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>paranamer</artifactId>
-                    <groupId>com.thoughtworks.paranamer</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>scala-library</artifactId>
-                    <groupId>org.scala-lang</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+			<exclusions>
+				<exclusion>
+					<artifactId>snappy-java</artifactId>
+					<groupId>org.xerial.snappy</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jackson-databind</artifactId>
+					<groupId>com.fasterxml.jackson.core</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>paranamer</artifactId>
+					<groupId>com.thoughtworks.paranamer</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>scala-library</artifactId>
+					<groupId>org.scala-lang</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
