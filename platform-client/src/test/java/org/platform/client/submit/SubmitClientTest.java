@@ -8,12 +8,9 @@ public class SubmitClientTest {
 		SubmitClient client = new SubmitClient();
 		String id = client.submit();
 		boolean flag;
-		while (true){
-			flag = client.monitory(id);
-			if (flag){
-				break;
-			}
-		}
+		do {
+			flag = SubmitClient.monitory(id);
+		} while (!flag);
 		System.out.println("job finished...");
 	}
 }

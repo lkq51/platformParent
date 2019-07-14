@@ -12,7 +12,7 @@ import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import static org.apache.ivy.util.Checks.checkNotNull;
 
 /**
  * @Author lou

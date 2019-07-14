@@ -8,20 +8,14 @@
         <artifactId>platformParent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
     <artifactId>platform-livy</artifactId>
-    <version>${platform.version}</version>
+    <version>1.0-SNAPSHOT</version>
 
 
     <dependencies>
         <dependency>
             <groupId>algorithmPlatform</groupId>
-            <artifactId>algorithm</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>algorithmPlatform</groupId>
-            <artifactId>platform-utils</artifactId>
+            <artifactId>utils</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
