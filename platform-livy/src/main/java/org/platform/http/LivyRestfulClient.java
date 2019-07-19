@@ -107,14 +107,13 @@ public class LivyRestfulClient {
 						break;
 					}
 				}catch (Exception e){
-
 				}
 				--times;
 			}while (StringUtils.isBlank(appId) && times > 0);
 		}
-		if (StringUtils.isBlank(appId)){
-
-		}
+		//if (StringUtils.isBlank(appId)){
+		//
+		//}
 		return  batchResponse;
 	}
 	public BatchResponse getBatchInfo(String batchid) {
