@@ -11,6 +11,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<dependencies>
 		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-core_2.11</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>dom4j</groupId>
 			<artifactId>dom4j</artifactId>
 		</dependency>
