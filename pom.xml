@@ -6,6 +6,18 @@
 	<artifactId>platformParent</artifactId>
 	<packaging>pom</packaging>
 
+	<modules>
+		<module>platform-livy</module>
+		<module>algorithm</module>
+		<module>platform-common</module>
+		<module>platform-server</module>
+		<module>utils</module>
+		<module>platform-client</module>
+		<module>platform-main</module>
+		<module>platform-web</module>
+	</modules>
+
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -17,8 +29,15 @@
 		<spring.version>2.0.4.RELEASE</spring.version>
 		<spark.version>2.2.0</spark.version>
 		<junit.version>4.12</junit.version>
-		<log4j.version>1.2.17</log4j.version>
+		<slf4j.version>1.7.12</slf4j.version>
 		<spring.version>2.0.4.RELEASE</spring.version>
+		<kafka.version>0.10.2.1</kafka.version>
+		<common.version>3.4</common.version>
+		<dom4j.version>1.6.1</dom4j.version>
+		<spnego.version>7.0</spnego.version>
+		<configuration.version>1.10</configuration.version>
+		<io.version>2.4</io.version>
+		<httpclient.version>4.5.3</httpclient.version>
 	</properties>
 
 
@@ -29,45 +48,22 @@
 	<name>platform</name>
 	<url>http://maven.apache.org</url>
 
-
-	<modules>
-		<module>platform-livy</module>
-		<module>algorithm</module>
-		<module>platform-common</module>
-		<module>platform-server</module>
-		<module>utils</module>
-		<module>platform-client</module>
-		<module>platform-main</module>
-	</modules>
+<dependencyManagement>
 	<dependencies>
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter</artifactId>-->
-<!--			<version>${spring.version}</version>-->
-<!--			<exclusions>-->
-<!--				<exclusion>-->
-<!--					<groupId>org.springframework.boot</groupId>-->
-<!--					<artifactId>spring-boot-starter-logging</artifactId>-->
-<!--				</exclusion>-->
-<!--			</exclusions>-->
-<!--		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-autoconfigure</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+<!--		spark-->
 		<dependency>
 			<groupId>org.apache.spark</groupId>
-			<artifactId>spark-core_2.10</artifactId>
+			<artifactId>spark-core_2.11</artifactId>
 			<version>${spark.version}</version>
 			<exclusions>
 				<exclusion>
 					<artifactId>snappy-java</artifactId>
 					<groupId>org.xerial.snappy</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>jackson-databind</artifactId>
-					<groupId>com.fasterxml.jackson.core</groupId>
 				</exclusion>
 				<exclusion>
 					<artifactId>paranamer</artifactId>
@@ -94,16 +90,8 @@
 					<groupId>org.apache.commons</groupId>
 				</exclusion>
 				<exclusion>
-					<artifactId>avro</artifactId>
-					<groupId>org.apache.avro</groupId>
-				</exclusion>
-				<exclusion>
 					<artifactId>log4j</artifactId>
 					<groupId>log4j</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>activation</artifactId>
-					<groupId>javax.activation</groupId>
 				</exclusion>
 				<exclusion>
 					<artifactId>netty</artifactId>
@@ -127,6 +115,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+<!--		scala-->
 		<dependency>
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-library</artifactId>
@@ -147,12 +136,51 @@
 			<artifactId>scalap</artifactId>
 			<version>${scala.version}</version>
 		</dependency>
+<!--		slf4j-->
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>${log4j.version}</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
+<!--		kafka-->
+		<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka_2.11</artifactId>
+			<version>${kafka.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${common.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>${dom4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.spnego</groupId>
+			<artifactId>spnego</artifactId>
+			<version>${spnego.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>${configuration.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${io.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${httpclient.version}</version>
 		</dependency>
 	</dependencies>
+</dependencyManagement>
 	<build>
 		<finalName>algorithmPlatform</finalName>
 		<plugins>
@@ -216,11 +244,6 @@
 							<log4j.configuration>log4j.test.properties</log4j.configuration>
 						</systemPropertyVariables>
 					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-assembly-plugin</artifactId>
-					<version>2.6</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
