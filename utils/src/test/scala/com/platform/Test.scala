@@ -27,7 +27,7 @@ object Test {
 			val wordSum = words.map(res => (res._1, 1)).reduceByKey(_ + _)
 		  val wordAndColorSum = words.map(res => (res._1 + "-" + res._2, (1, List(res))))
 			  .reduceByKey((x, y) => {
-				  (x._1 + y._1, x._2 ++: y._2)
+				  (x._1 + y._1, x._2 ::: y._2)
 			  })
 			  .map(res => (res._1.split("-")(0), (res._2._1 ,res._2._2)))
 		println("wordSum size : " + wordSum.count())
@@ -45,7 +45,7 @@ object Test {
 		val result1 = result.map(x => {
 			(x._1, List(x))
 		}).reduceByKey((x, y) => {
-			(x ++:y).sortBy(_._3)
+			(x :::y).sortBy(_._3)
 		}).filter(res => {
 			res._2.nonEmpty
 		})
