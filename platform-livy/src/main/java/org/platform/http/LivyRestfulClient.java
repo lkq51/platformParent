@@ -1,7 +1,6 @@
 package org.platform.http;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang3.StringUtils;
 import org.platform.common.SysConfigUtils;
 import org.slf4j.Logger;
@@ -12,18 +11,15 @@ import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.apache.ivy.util.Checks.checkNotNull;
+import static com.google.common.base.Preconditions.checkNotNull;
+
 
 /**
  * @Author lou
  */
 public class LivyRestfulClient {
 	protected Logger logger = LoggerFactory.getLogger(getClass());
-	private static Gson gson = null;
-	static {
-		GsonBuilder gsonBuilder = new GsonBuilder();
-		gson = gsonBuilder.create();
-	}
+
 
 	static
 
@@ -52,7 +48,7 @@ public class LivyRestfulClient {
 		request.setExecutorMemory("4G");
 		request.setNumExecutors(12);
 
-		String strRequest = gson.toJson(request);
+		String strRequest = JSON.toJSONString(request);
 		if (logger.isDebugEnabled()){
 			logger.debug(strRequest);
 		}
@@ -76,7 +72,7 @@ public class LivyRestfulClient {
 		if (StringUtils.isBlank(batchResult)){
 
 		}
-		BatchResponse batchResponse = gson.fromJson(batchResult, BatchResponse.class);
+		BatchResponse batchResponse = JSON.parseObject(batchResult, BatchResponse.class);
 		if (logger.isDebugEnabled()){
 			logger.debug(batchResponse.toString());
 		}
@@ -131,7 +127,7 @@ public class LivyRestfulClient {
 			}
 		}
 
-		BatchResponse batchPostResponse = gson.fromJson(infoResult,
+		BatchResponse batchPostResponse = JSON.parseObject(infoResult,
 				BatchResponse.class);
 		if (logger.isDebugEnabled()) {
 			logger.debug(batchPostResponse.toString());
