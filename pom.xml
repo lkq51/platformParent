@@ -39,6 +39,7 @@
 		<httpclient.version>4.5.3</httpclient.version>
 		<json.version>1.2.47</json.version>
 		<guava.version>16.0.1</guava.version>
+		<scalatest.version>3.0.5</scalatest.version>
 	</properties>
 
 
@@ -125,6 +126,12 @@
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scalap</artifactId>
 			<version>${scala.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.scalatest</groupId>
+			<artifactId>scalatest_2.11</artifactId>
+			<version>${scalatest.version}</version>
+			<scope>test</scope>
 		</dependency>
 <!--		slf4j-->
 		<dependency>
