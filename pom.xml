@@ -38,7 +38,7 @@
 		<configuration.version>1.10</configuration.version>
 		<io.version>2.4</io.version>
 		<httpclient.version>4.5.3</httpclient.version>
-		<json.version>1.2.47</json.version>
+		<json.version>1.2.83</json.version>
 		<guava.version>16.0.1</guava.version>
 		<scalatest.version>3.0.5</scalatest.version>
 	</properties>
